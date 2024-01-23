@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+    margin: 0px auto;
+    max-width: 640px;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#forms {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+}
+
+#forms label {
+    padding: 6px 0px;
+}
+
+#forms button {
+    margin-top: 6px;
+    padding: 6px;
+}
+
+.message {
+    display: none;
+    padding: 16px;
+    margin-top: 6px;
+    background-color: green;
+}
+
+.fail {
+    display: none;
+    padding: 16px;
+    margin-top: 6px;
+    background-color: red;
+}
+
+body {
+    background-color: azure;
+}
+
