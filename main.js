@@ -1,40 +1,39 @@
-button = document.getElementById('forms')
+const namesTasks = []
 
-function higherNumber (num1, num2) {
-    if (num1 > num2) {
-        return false
-    } else if(num1 == num2){
-        return false
-    } else {
-        return true
-    }
-}
+$(document).ready(function() {
+    $('ul').on('click', 'li', function() {
+        if ($(this).hasClass('clicked')) {
+            $(this).removeClass('clicked')
+        } else {
+            $(this).addClass('clicked')
+        }
+    })
 
-button.addEventListener('submit', function(e) {
-    e.preventDefault()
+    $('ul').on('click', 'img', function() {
+        const listItemText = $(this).prev('p').text() // pega o valor do p
+        const li = $(this).closest('li')
 
-    let num1 = document.getElementById('number1')
-    let num2 = document.getElementById('number2')
-    sucess = document.querySelector('.message')
-    fail = document.querySelector('.fail')
+        $(li).slideUp(function() {
+            $(li).removeClass('clicked')
+            const indexToRemove = namesTasks.indexOf(listItemText); // pega o index do p que foi clicado no array "namesTasks" 
+            namesTasks.splice(indexToRemove, 1); // remove o p do arraz, evitando bugs
+        })
+    })
 
-    numbers = higherNumber(num1.value, num2.value)
+    $('form').on('submit', function(e) {
+        e.preventDefault();
 
-    if (numbers) {
-        document.querySelector(".fail").style.display = "none"
-        sucess.innerHTML = "FOMULARIO VALIDO!"
-        sucess.style.display = "block"
+        const nameTask = $('#name-task').val()
+        const newItem = $(`<li></li>`)
 
-        num1.value = ''
-        num2.value = ''
+        if (namesTasks.includes(nameTask)) {
+            alert(`o item "${nameTask}" ja tem na lista, remova para continuar`)
+        } else {
+            namesTasks.push($('#name-task').val())
 
-    } else {
-        document.querySelector(".message").style.display = "none"
-        sucess.style.display = "none"
-        fail.innerHTML = "FOMULARIO INVALIDO!"
-        fail.style.display = "block"
-
-        num1.value = ''
-        num2.value = ''
-    }
+            $(`<p><img src="./imgs/icons8-lixeira-24.png" alt="lixeira">${nameTask}</p>`).appendTo(newItem)
+            $(newItem).appendTo('ul')
+            $('#name-task').val('')
+        }
+    })
 })
