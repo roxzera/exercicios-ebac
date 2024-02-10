@@ -78,3 +78,36 @@ form button {
 hr {
     margin-bottom: 35px;
 }
+
+@media (max-width: 750px) {
+    form input {
+        max-width: 320px;
+        width: 56%;
+    }
+
+    form button {
+        font-size: 15px;
+        max-width: 150px;
+        padding: 8px;
+        border-radius: 8px;
+    } 
+    
+    .g-recaptcha {
+        margin-bottom: 15px;
+    }
+
+    hr {
+        margin-bottom: 20px;
+    }
+
+    header {
+        margin-bottom: 65px;
+    }
+
+    .container {
+        padding: 40px;
+        max-height: 650px;
+        margin: 5px auto;
+    }
+
+}
