@@ -6,10 +6,10 @@ $(document).ready(function (){
             $('#cpf').val('')
             $('#cep').val('')
             $('#phone').val('')
-            $('#isrt-name').val('')
+            $('#fisrt-name').val('')
             $('#email').val('')
             $('#address').val('')
-            
+
             alert('Formulario enviado com sucesso!')
         } else {
             alert('Click no "nao sou um robo"')
