@@ -1,14 +1,13 @@
 $(document).ready(function (){
-    if (grecaptcha.getResponse() != '') return true;
-
-    alert('aaa')
-
     $('form').on('submit', function(e) {
         e.preventDefault();
+        console.log(grecaptcha.getResponse())
+        // if (grecaptcha.getResponse() != '') 
 
         $('#cpf').val('')
         $('#cep').val('')
         $('#phone').val('')
+
     })
 
     $('#cpf').mask('000.000.000-00', {
