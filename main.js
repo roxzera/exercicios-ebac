@@ -1,13 +1,19 @@
 $(document).ready(function (){
     $('form').on('submit', function(e) {
         e.preventDefault();
-        console.log(grecaptcha.getResponse())
-        // if (grecaptcha.getResponse() != '') 
 
-        $('#cpf').val('')
-        $('#cep').val('')
-        $('#phone').val('')
-
+        if (grecaptcha.getResponse() != '') {
+            $('#cpf').val('')
+            $('#cep').val('')
+            $('#phone').val('')
+            $('#isrt-name').val('')
+            $('#email').val('')
+            $('#address').val('')
+            
+            alert('Formulario enviado com sucesso!')
+        } else {
+            alert('Click no "nao sou um robo"')
+        }
     })
 
     $('#cpf').mask('000.000.000-00', {
